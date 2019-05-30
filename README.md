@@ -1,6 +1,7 @@
 Modified version of OpenMesh that has support for Coordinate System type (left/right handed)
--This is currently true for Tri-Face normals, Poly-Faces are not supported yet
--Not sure what else needs Coordinate System support
+- This is currently true for Tri-Face normals, Poly-Faces are not supported yet
+- Not sure what else needs Coordinate System support
+
 CoordinateSystem kann be set via the Traits (see DefaultTraits)
 
 
