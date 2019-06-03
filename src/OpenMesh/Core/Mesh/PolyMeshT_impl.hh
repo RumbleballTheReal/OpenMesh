@@ -209,7 +209,7 @@ calc_face_normal_impl(const Point& _p0,
   Normal p1p0(vector_cast<Normal>(_p0));  p1p0 -= vector_cast<Normal>(_p1);
   Normal p1p2(vector_cast<Normal>(_p2));  p1p2 -= vector_cast<Normal>(_p1);
 
-  Normal n    = cross(p1p2, p1p0);
+  Normal n    = cross(p1p2, p1p0, CoordinateSystemType);
   typename vector_traits<Normal>::value_type length = norm(n);
 
   // The expression ((n *= (1.0/norm)),n) is used because the OpenSG
