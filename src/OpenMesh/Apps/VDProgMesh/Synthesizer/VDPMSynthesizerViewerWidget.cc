@@ -78,14 +78,7 @@ namespace OpenMesh {
 //== IMPLEMENTATION ========================================================== 
 
 VDPMSynthesizerViewerWidget::VDPMSynthesizerViewerWidget(QWidget* _parent, const char* _name)
-  : MeshViewerWidget(_parent),
-    kappa_square_(0.0),
-    adaptive_mode_(false),
-    n_base_vertices_(0),
-    n_base_edges_(0),
-    n_base_faces_(0),
-    n_details_(0)
-
+  : MeshViewerWidget(_parent)
 {
   adaptive_mode_ = true;
 }

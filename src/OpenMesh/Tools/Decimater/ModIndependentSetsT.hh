@@ -72,12 +72,12 @@ class ModIndependentSetsT: public ModBaseT<MeshT> {
     ;
 
     /// Constructor
-    explicit ModIndependentSetsT(MeshT &_mesh) :
+    ModIndependentSetsT(MeshT &_mesh) :
         Base(_mesh, true) {
     }
 
     /// override
-    void postprocess_collapse(const CollapseInfo& _ci) override {
+    void postprocess_collapse(const CollapseInfo& _ci) {
       typename Mesh::VertexVertexIter vv_it;
 
       Base::mesh().status(_ci.v1).set_locked(true);

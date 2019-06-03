@@ -79,7 +79,7 @@ private:
   
 public:
 
-  explicit JacobiLaplaceSmootherT( Mesh& _mesh ) : LaplaceSmootherT<Mesh>(_mesh) {}
+  JacobiLaplaceSmootherT( Mesh& _mesh ) : LaplaceSmootherT<Mesh>(_mesh) {}
 
   // override: alloc umbrellas
   void smooth(unsigned int _n);

@@ -97,7 +97,7 @@ class ModRoundnessT : public ModBaseT<MeshT>
   public:
 
   /// Constructor
-  explicit ModRoundnessT( MeshT &_dec ) :
+  ModRoundnessT( MeshT &_dec ) :
     Base(_dec, false),
     min_r_(-1.0)
   { }
@@ -117,7 +117,7 @@ class ModRoundnessT : public ModBaseT<MeshT>
    * \return LEGAL_COLLAPSE or ILLEGAL_COLLAPSE in binary mode
    * \see set_min_roundness()
    */
-  float collapse_priority(const CollapseInfo& _ci) override
+  float collapse_priority(const CollapseInfo& _ci)
   {
     //     using namespace OpenMesh;
 
@@ -174,7 +174,7 @@ class ModRoundnessT : public ModBaseT<MeshT>
   }
 
   /// set the percentage of minimum roundness
-  void set_error_tolerance_factor(double _factor) override {
+  void set_error_tolerance_factor(double _factor) {
     if (this->is_binary()) {
       if (_factor >= 0.0 && _factor <= 1.0) {
         // the smaller the factor, the smaller min_r_ gets

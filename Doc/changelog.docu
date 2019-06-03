@@ -6,35 +6,6 @@
 
 <!-- --------------------------------------------------------------------- -->
 
-<tr valign=top><td><b>8.1</b> (?/?/?)</td><td>
-
-<b>Tools</b>
-<ul>
-<li>Subdivider: Fixed crash in Loop subdivider</li>
-<li>Subdivider: Fixed crash in ModifiedButterfly subdivider</li>
-</ul>
-
-
-<b>Utils</b>
-<ul>
-<li>Change PropertyManager::operator* to access the property value for mesh properties</li>
-<li>PropertyManager: add hasProperty function</li>
-</ul>
-
-<b>IO</b>
-<ul>
-<li>PLY Reader: Fix reading doubles from PLY, missing cast (Thanks to Leo Walsh for the patch)</li>
-</ul>
-
-
-<b>Build System</b>
-<ul>
-<li>Generate OpenMeshConfig.cmake (Thanks to Thibault Payet for the patch)</li>
-<li>Support building on FreeBSD (Thanks to Thibault Payet for the patch)</li>
-</ul>
-
-</tr>
-
 
 <tr valign=top><td><b>8.0</b> (2019/02/21)</td><td>
 

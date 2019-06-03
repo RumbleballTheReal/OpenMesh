@@ -66,65 +66,65 @@ namespace OpenMesh {
 template <class Traits, bool IsTriMesh>
 struct FinalMeshItemsT
 {
-    //--- build Refs structure ---
+  //--- build Refs structure ---
 #ifndef DOXY_IGNORE_THIS
-    struct Refs
-    {
-        typedef typename Traits::CoordinateSystemType CoordinateSystemType;
-        typedef typename Traits::Point            Point;
-        typedef typename vector_traits<Point>::value_type Scalar;
+  struct Refs
+  {
+	typedef typename Traits::CoordinateSystemType CoordinateSystemType;
+    typedef typename Traits::Point            Point;
+    typedef typename vector_traits<Point>::value_type Scalar;
 
-        typedef typename Traits::Normal           Normal;
-        typedef typename Traits::Color            Color;
-        typedef typename Traits::TexCoord1D       TexCoord1D;
-        typedef typename Traits::TexCoord2D       TexCoord2D;
-        typedef typename Traits::TexCoord3D       TexCoord3D;
-        typedef typename Traits::TextureIndex     TextureIndex;
-        typedef OpenMesh::VertexHandle            VertexHandle;
-        typedef OpenMesh::FaceHandle              FaceHandle;
-        typedef OpenMesh::EdgeHandle              EdgeHandle;
-        typedef OpenMesh::HalfedgeHandle          HalfedgeHandle;
-    };
+    typedef typename Traits::Normal           Normal;
+    typedef typename Traits::Color            Color;
+    typedef typename Traits::TexCoord1D       TexCoord1D;
+    typedef typename Traits::TexCoord2D       TexCoord2D;
+    typedef typename Traits::TexCoord3D       TexCoord3D;
+    typedef typename Traits::TextureIndex     TextureIndex;
+    typedef OpenMesh::VertexHandle            VertexHandle;
+    typedef OpenMesh::FaceHandle              FaceHandle;
+    typedef OpenMesh::EdgeHandle              EdgeHandle;
+    typedef OpenMesh::HalfedgeHandle          HalfedgeHandle;
+  };
 #endif
-    //--- export Refs types ---
-	typedef typename Refs::CoordinateSystemType CoordinateSystemType;
-    typedef typename Refs::Point           Point;
-    typedef typename Refs::Scalar          Scalar;
-    typedef typename Refs::Normal          Normal;
-    typedef typename Refs::Color           Color;
-    typedef typename Refs::TexCoord1D      TexCoord1D;
-    typedef typename Refs::TexCoord2D      TexCoord2D;
-    typedef typename Refs::TexCoord3D      TexCoord3D;
-    typedef typename Refs::TextureIndex    TextureIndex;
+  //--- export Refs types ---
+  typedef typename Refs::CoordinateSystemType CoordinateSystemType;
+  typedef typename Refs::Point           Point;
+  typedef typename Refs::Scalar          Scalar;
+  typedef typename Refs::Normal          Normal;
+  typedef typename Refs::Color           Color;
+  typedef typename Refs::TexCoord1D      TexCoord1D;
+  typedef typename Refs::TexCoord2D      TexCoord2D;
+  typedef typename Refs::TexCoord3D      TexCoord3D;
+  typedef typename Refs::TextureIndex    TextureIndex;
 
-    //--- get attribute bits from Traits ---
-    enum Attribs
-    {
-        VAttribs = Traits::VertexAttributes,
-        HAttribs = Traits::HalfedgeAttributes,
-        EAttribs = Traits::EdgeAttributes,
-        FAttribs = Traits::FaceAttributes
-    };
-    //--- merge internal items with traits items ---
+  //--- get attribute bits from Traits ---
+  enum Attribs
+  {
+    VAttribs = Traits::VertexAttributes,
+    HAttribs = Traits::HalfedgeAttributes,
+    EAttribs = Traits::EdgeAttributes,
+    FAttribs = Traits::FaceAttributes
+  };
+  //--- merge internal items with traits items ---
 
 
-    /*
-      typedef typename GenProg::IF<
-        (bool)(HAttribs & Attributes::PrevHalfedge),
-        typename InternalItems::Halfedge_with_prev,
-        typename InternalItems::Halfedge_without_prev
-      >::Result   InternalHalfedge;
-    */
-    //typedef typename InternalItems::Vertex                     InternalVertex;
-    //typedef typename InternalItems::template Edge<Halfedge>      InternalEdge;
-    //typedef typename InternalItems::template Face<IsTriMesh>     InternalFace;
-    class ITraits
-    {};
+/*
+  typedef typename GenProg::IF<
+    (bool)(HAttribs & Attributes::PrevHalfedge),
+    typename InternalItems::Halfedge_with_prev,
+    typename InternalItems::Halfedge_without_prev
+  >::Result   InternalHalfedge;
+*/
+  //typedef typename InternalItems::Vertex                     InternalVertex;
+  //typedef typename InternalItems::template Edge<Halfedge>      InternalEdge;
+  //typedef typename InternalItems::template Face<IsTriMesh>     InternalFace;
+  class ITraits
+  {};
 
-    typedef typename Traits::template VertexT<ITraits, Refs>      VertexData;
-    typedef typename Traits::template HalfedgeT<ITraits, Refs>    HalfedgeData;
-    typedef typename Traits::template EdgeT<ITraits, Refs>        EdgeData;
-    typedef typename Traits::template FaceT<ITraits, Refs>        FaceData;
+  typedef typename Traits::template VertexT<ITraits, Refs>      VertexData;
+  typedef typename Traits::template HalfedgeT<ITraits, Refs>    HalfedgeData;
+  typedef typename Traits::template EdgeT<ITraits, Refs>        EdgeData;
+  typedef typename Traits::template FaceT<ITraits, Refs>        FaceData;
 };
 
 

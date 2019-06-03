@@ -119,7 +119,7 @@ public:
   InterpolatingSqrt3LGT(void) : parent_t()
   { init_weights(); }
 
-  explicit InterpolatingSqrt3LGT(MeshType &_m) : parent_t(_m)
+  InterpolatingSqrt3LGT(MeshType &_m) : parent_t(_m)
   { init_weights(); }
 
   virtual ~InterpolatingSqrt3LGT() {}
@@ -128,7 +128,7 @@ public:
 public:
 
 
-  const char *name() const override { return "Uniform Interpolating Sqrt3"; }
+  const char *name() const { return "Uniform Interpolating Sqrt3"; }
 
   /// Pre-compute weights
   void init_weights(size_t _max_valence=50)
@@ -170,7 +170,7 @@ public:
 protected:
 
 
-  bool prepare( MeshType& _m ) override
+  bool prepare( MeshType& _m )
   {
     _m.request_edge_status();
     _m.add_property( fp_pos_ );
@@ -183,7 +183,7 @@ protected:
   }
 
 
-  bool cleanup( MeshType& _m ) override
+  bool cleanup( MeshType& _m )
   {
     _m.release_edge_status();
     _m.remove_property( fp_pos_ );
@@ -193,7 +193,7 @@ protected:
   }
 
 
-  bool subdivide( MeshType& _m, size_t _n , const bool _update_points = true) override
+  bool subdivide( MeshType& _m, size_t _n , const bool _update_points = true)
   {
 
     ///TODO:Implement fixed positions
@@ -409,7 +409,7 @@ private:
 
     typename MeshType::HalfedgeHandle heh;
     typename MeshType::VertexHandle   vh1, vh2, vh3, vh4, vhl, vhr;
-    typename MeshType::Point          P1, P2, P3, P4;
+    typename MeshType::Point          zero(0,0,0), P1, P2, P3, P4;
 
     /*
     //       *---------*---------*

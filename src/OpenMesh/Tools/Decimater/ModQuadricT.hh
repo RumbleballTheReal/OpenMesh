@@ -85,7 +85,7 @@ public:
   /** Constructor
    *  \internal
    */
-  explicit ModQuadricT( MeshT &_mesh )
+  ModQuadricT( MeshT &_mesh )
     : Base(_mesh, false)
   {
     unset_max_err();
@@ -103,14 +103,14 @@ public:
 public: // inherited
 
   /// Initalize the module and prepare the mesh for decimation.
-  virtual void initialize(void) override;
+  virtual void initialize(void);
 
   /** Compute collapse priority based on error quadrics.
    *
    *  \see ModBaseT::collapse_priority() for return values
    *  \see set_max_err()
    */
-  virtual float collapse_priority(const CollapseInfo& _ci) override
+  virtual float collapse_priority(const CollapseInfo& _ci)
   {
     using namespace OpenMesh;
 
@@ -131,14 +131,14 @@ public: // inherited
 
 
   /// Post-process halfedge collapse (accumulate quadrics)
-  virtual void postprocess_collapse(const CollapseInfo& _ci) override
+  virtual void postprocess_collapse(const CollapseInfo& _ci)
   {
     Base::mesh().property(quadrics_, _ci.v1) +=
       Base::mesh().property(quadrics_, _ci.v0);
   }
 
   /// set the percentage of maximum quadric error
-  void set_error_tolerance_factor(double _factor) override;
+  void set_error_tolerance_factor(double _factor);
 
 
 

@@ -94,7 +94,7 @@ public: //-------------------------------------------------------- public types
   typedef typename ModuleList::iterator ModuleListIterator;
 
 public: //------------------------------------------------------ public methods
-  explicit BaseDecimaterT(Mesh& _mesh);
+  BaseDecimaterT(Mesh& _mesh);
   virtual ~BaseDecimaterT();
 
   /** Initialize decimater and decimating modules.

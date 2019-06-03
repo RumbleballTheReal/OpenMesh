@@ -61,6 +61,7 @@
 #include <OpenMesh/Core/Mesh/PolyConnectivity.hh>
 #include <OpenMesh/Core/Mesh/FinalMeshItemsT.hh>
 #include <OpenMesh/Core/Mesh/Tags.hh>
+#include <OpenMesh/Core/Mesh/Handedness.hh>
 #include <vector>
 
 
@@ -106,6 +107,7 @@ public:
 
   /// \name Mesh Items
   //@{
+  /// Coordinate System type
   typedef typename Kernel::CoordinateSystemType CoordinateSystemType;
   /// Scalar type
   typedef typename Kernel::Scalar    Scalar;

@@ -97,19 +97,19 @@ public:
 
   _PLYReader_();
 
-  std::string get_description() const override { return "PLY polygon file format"; }
-  std::string get_extensions()  const override { return "ply"; }
-  std::string get_magic()       const override { return "PLY"; }
+  std::string get_description() const { return "PLY polygon file format"; }
+  std::string get_extensions()  const { return "ply"; }
+  std::string get_magic()       const { return "PLY"; }
 
   bool read(const std::string& _filename,
         BaseImporter& _bi,
-        Options& _opt) override;
+        Options& _opt);
 
   bool read(std::istream& _is,
             BaseImporter& _bi,
-            Options& _opt) override;
+            Options& _opt);
 
-  bool can_u_read(const std::string& _filename) const override;
+  bool can_u_read(const std::string& _filename) const;
 
   enum ValueType {
     Unsupported,

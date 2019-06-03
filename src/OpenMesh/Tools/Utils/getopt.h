@@ -21,7 +21,7 @@
 
   #endif
 
-#elif defined __APPLE__ || defined(__FreeBSD__)
+#elif defined __APPLE__
  #include <unistd.h>
 #else
  #include <getopt.h>

@@ -112,7 +112,7 @@ public:
   {}
 
   template <class _Point>
-  explicit QuadricT(const _Point& _pt)
+  QuadricT(const _Point& _pt)
   {
     set_distance_to_point(_pt);
   }

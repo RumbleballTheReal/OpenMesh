@@ -90,14 +90,14 @@ public:
 public:
 
   /// Default constructor
-  ModHandleT() : mod_(nullptr) {}
+  ModHandleT() : mod_(NULL) {}
 
   /// Destructor
   ~ModHandleT() { /* don't delete mod_, since handle is not owner! */ }
 
   /// Check handle status
   /// \return \c true, if handle is valid, else \c false.
-  bool is_valid() const { return mod_ != nullptr; }
+  bool is_valid() const { return mod_ != NULL; }
 
 private:
 
@@ -107,7 +107,7 @@ private:
   template <typename Mesh> friend class BaseDecimaterT;
 #endif
 
-  void     clear()           { mod_ = nullptr; }
+  void     clear()           { mod_ = NULL; }
   void     init(Module* _m)  { mod_ = _m;   }
   Module*  module()          { return mod_; }
 
@@ -128,7 +128,7 @@ private:
 /// Macro that sets up the name() function
 /// \internal
 #define DECIMATER_MODNAME(_mod_name) \
- virtual const std::string& name() const override { \
+ virtual const std::string& name() const { \
   static std::string _s_modname_(#_mod_name); return _s_modname_; \
 }
 
@@ -212,8 +212,8 @@ public:
   /// Virtual desctructor
   virtual ~ModBaseT() { }
 
-  /// Set module's name
-  virtual const std::string& name() const { static std::string _s_modname_("ModBase"); return _s_modname_; }
+  /// Set module's name (using DECIMATER_MODNAME macro)
+  DECIMATER_MODNAME(ModBase);
 
 
   /// Returns true if criteria returns a binary value.

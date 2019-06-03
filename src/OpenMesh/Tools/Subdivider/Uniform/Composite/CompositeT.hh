@@ -96,19 +96,19 @@ public:
 
 public:
 
-  CompositeT(void) : parent_t(), p_mesh_(nullptr) {}
-  explicit CompositeT(MeshType& _mesh) : parent_t(_mesh), p_mesh_(nullptr) {};
+  CompositeT(void) : parent_t(), p_mesh_(NULL) {}
+  explicit CompositeT(MeshType& _mesh) : parent_t(_mesh), p_mesh_(NULL) {};
   virtual ~CompositeT() { }
 
 public: // inherited interface
 
-  virtual const char *name( void ) const override = 0;
+  virtual const char *name( void ) const = 0;
 
 protected: // inherited interface
 
-  bool prepare( MeshType& _m ) override;
+  bool prepare( MeshType& _m );
 
-  bool subdivide( MeshType& _m, size_t _n, const bool _update_points = true  ) override
+  bool subdivide( MeshType& _m, size_t _n, const bool _update_points = true  )
   {
     assert( p_mesh_ == &_m );
 
@@ -122,13 +122,13 @@ protected: // inherited interface
   }
 
 #ifdef NDEBUG
-  bool cleanup( MeshType& ) override
+  bool cleanup( MeshType& ) 
 #else
-  bool cleanup( MeshType& _m ) override
+  bool cleanup( MeshType& _m ) 
 #endif
   { 
     assert( p_mesh_ == &_m );
-    p_mesh_=nullptr; 
+    p_mesh_=NULL; 
     return true; 
   }
 

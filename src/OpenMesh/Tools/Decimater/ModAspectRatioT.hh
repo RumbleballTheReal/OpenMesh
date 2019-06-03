@@ -111,16 +111,16 @@ class ModAspectRatioT: public ModBaseT<MeshT> {
     }
 
     /// precompute face aspect ratio
-    void initialize() override;
+    void initialize();
 
     /// Returns the collapse priority
-    float collapse_priority(const CollapseInfo& _ci) override;
+    float collapse_priority(const CollapseInfo& _ci);
 
     /// update aspect ratio of one-ring
-    void preprocess_collapse(const CollapseInfo& _ci) override;
+    void preprocess_collapse(const CollapseInfo& _ci);
 
     /// set percentage of aspect ratio
-    void set_error_tolerance_factor(double _factor) override;
+    void set_error_tolerance_factor(double _factor);
 
   private:
 

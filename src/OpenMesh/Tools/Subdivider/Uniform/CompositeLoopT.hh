@@ -82,16 +82,16 @@ public:
 public:
 
   CompositeLoopT() : Inherited() {};
-  explicit CompositeLoopT(MeshType& _mesh) : Inherited(_mesh) {};
+  CompositeLoopT(MeshType& _mesh) : Inherited(_mesh) {};
   ~CompositeLoopT() {}
 
 public:
   
-  const char *name() const override { return "Uniform Composite Loop"; }
+  const char *name() const { return "Uniform Composite Loop"; }
   
 protected: // inherited interface
 
-  void apply_rules(void) override
+  void apply_rules(void)  
   { 
     Inherited::Tvv4(); 
     Inherited::VdE(); 
@@ -119,7 +119,7 @@ protected:
                     weights_.end(), compute_weight() );
     }
     
-    double operator()(size_t _valence) override { return weights_[_valence]; }
+    double operator()(size_t _valence) { return weights_[_valence]; }
 
     /// \internal
     struct compute_weight 

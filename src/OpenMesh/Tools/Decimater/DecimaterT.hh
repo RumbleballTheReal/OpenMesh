@@ -89,7 +89,7 @@ public: //-------------------------------------------------------- public types
 public: //------------------------------------------------------ public methods
 
   /// Constructor
-  explicit DecimaterT( Mesh& _mesh );
+  DecimaterT( Mesh& _mesh );
 
   /// Destructor
   ~DecimaterT();

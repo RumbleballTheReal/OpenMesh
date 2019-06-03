@@ -108,7 +108,7 @@ public:
 
   //
   oPropertyT( const std::string& _name = "<unknown>" )
-    : BaseProperty(_name), data_(nullptr)
+    : BaseProperty(_name), data_(NULL)
   {
     data_ = property_t::create();
     

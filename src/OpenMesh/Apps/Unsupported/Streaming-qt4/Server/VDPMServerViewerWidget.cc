@@ -72,7 +72,7 @@ get_vdpm(const char _vdpm_name[256])
     }
   }
 
-  return  nullptr;
+  return  NULL;
 }
 
 void

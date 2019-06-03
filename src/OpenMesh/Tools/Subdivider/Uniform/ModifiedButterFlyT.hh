@@ -107,7 +107,7 @@ public:
   { init_weights(); }
 
 
-  explicit ModifiedButterflyT( mesh_t& _m) : parent_t(_m)
+  ModifiedButterflyT( mesh_t& _m) : parent_t(_m)
   { init_weights(); }
 
 
@@ -117,7 +117,7 @@ public:
 public:
 
 
-  const char *name() const override { return "Uniform Spectral"; }
+  const char *name() const { return "Uniform Spectral"; }
 
 
   /// Pre-compute weights
@@ -158,7 +158,7 @@ public:
 protected:
 
 
-  bool prepare( mesh_t& _m ) override
+  bool prepare( mesh_t& _m )
   {
     _m.add_property( vp_pos_ );
     _m.add_property( ep_pos_ );
@@ -166,7 +166,7 @@ protected:
   }
 
 
-  bool cleanup( mesh_t& _m ) override
+  bool cleanup( mesh_t& _m )
   {
     _m.remove_property( vp_pos_ );
     _m.remove_property( ep_pos_ );
@@ -174,7 +174,7 @@ protected:
   }
 
 
-  bool subdivide( MeshType& _m, size_t _n , const bool _update_points = true) override
+  bool subdivide( MeshType& _m, size_t _n , const bool _update_points = true)
   {
 
     ///TODO:Implement fixed positions
@@ -356,11 +356,7 @@ private: // topological modifiers
 
     _m.set_face_handle( new_heh, _m.face_handle(heh) );
     _m.set_halfedge_handle( vh, new_heh);
-
-    // We cant reconnect a non existing face, so we skip this here if necessary
-    if ( !_m.is_boundary(heh) )
-      _m.set_halfedge_handle( _m.face_handle(heh), heh );
-
+    _m.set_halfedge_handle( _m.face_handle(heh), heh );
     _m.set_halfedge_handle( vh1, opp_new_heh );
 
     // Never forget this, when playing with the topology
@@ -387,7 +383,7 @@ private: // geometry helper
     {
         pos = _m.point(a_0);
         pos += _m.point(a_1);
-        pos *= static_cast<RealType>(9.0/16.0);
+        pos *= static_cast<typename mesh_t::Point::value_type>(9.0/16.0);
         typename mesh_t::Point tpos;
         if(_m.is_boundary(heh))
         {
@@ -400,7 +396,7 @@ private: // geometry helper
             tpos = _m.point(_m.to_vertex_handle(_m.next_halfedge_handle(opp_heh)));
             tpos += _m.point(_m.to_vertex_handle(_m.opposite_halfedge_handle(_m.prev_halfedge_handle(opp_heh))));
         }
-        tpos *= static_cast<RealType>(-1.0/16.0);
+        tpos *= static_cast<typename mesh_t::Point::value_type>(-1.0/16.0);
         pos += tpos;
     }
     else
@@ -503,7 +499,7 @@ private: // geometry helper
         }
         else //at least one endpoint is [irregular and not in boundary]
         {
-          RealType normFactor = static_cast<RealType>(0.0);
+            typename mesh_t::Point::value_type normFactor = static_cast<typename mesh_t::Point::value_type>(0.0);
 
             if(valence_a_0!=6 && !_m.is_boundary(a_0))
             {

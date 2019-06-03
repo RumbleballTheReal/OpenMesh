@@ -70,7 +70,7 @@ protected:
 
 public:
   AutoPropertyHandleT()
-  : m_(nullptr), own_property_(false)
+  : m_(NULL), own_property_(false)
   {}
   
   AutoPropertyHandleT(const Self& _other)

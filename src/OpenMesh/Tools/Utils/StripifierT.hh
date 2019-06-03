@@ -88,7 +88,7 @@ public:
 
 
   /// Default constructor
-  explicit StripifierT(Mesh& _mesh);
+  StripifierT(Mesh& _mesh);
 
   /// Destructor
   ~StripifierT();

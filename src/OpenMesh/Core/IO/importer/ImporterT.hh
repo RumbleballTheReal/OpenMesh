@@ -89,7 +89,7 @@ public:
   typedef std::vector<VertexHandle>  VHandles;
 
 
-  explicit ImporterT(Mesh& _mesh) : mesh_(_mesh), halfedgeNormals_() {}
+  ImporterT(Mesh& _mesh) : mesh_(_mesh), halfedgeNormals_() {}
 
 
   virtual VertexHandle add_vertex(const Vec3f& _point) override

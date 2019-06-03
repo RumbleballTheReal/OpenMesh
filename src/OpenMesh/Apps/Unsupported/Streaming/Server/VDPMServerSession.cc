@@ -64,7 +64,7 @@ set_vdpm(const char _vdpm_name[256])
   }
 #endif
   vdpm_ = ((VDPMServerViewerWidget *) ((VDPMServerSocket *) parent())->parent())->get_vdpm(_vdpm_name);
-  if (vdpm_ == nullptr)
+  if (vdpm_ == NULL)
     return  false;
 
   vhierarchy_ = &vdpm_->vhierarchy();

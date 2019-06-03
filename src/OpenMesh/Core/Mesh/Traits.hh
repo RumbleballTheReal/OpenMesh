@@ -121,39 +121,39 @@ namespace OpenMesh {
 */
 struct DefaultTraits
 {
-	/// The coordinate system type is OpenMesh::RightHandedType
-    typedef RightHandedType CoordinateSystemType;
+  /// The coordinate system type is OpenMesh::RightHandedType
+  typedef RightHandedType CoordinateSystemType;
 
-    /// The default coordinate type is OpenMesh::Vec3f.
-    typedef Vec3f  Point;
+  /// The default coordinate type is OpenMesh::Vec3f.
+  typedef Vec3f  Point;
 
-    /// The default normal type is OpenMesh::Vec3f.
-    typedef Vec3f  Normal;
+  /// The default normal type is OpenMesh::Vec3f.
+  typedef Vec3f  Normal;
 
-    /// The default 1D texture coordinate type is float.
-    typedef float  TexCoord1D;
-    /// The default 2D texture coordinate type is OpenMesh::Vec2f.
-    typedef Vec2f  TexCoord2D;
-    /// The default 3D texture coordinate type is OpenMesh::Vec3f.
-    typedef Vec3f  TexCoord3D;
+  /// The default 1D texture coordinate type is float.
+  typedef float  TexCoord1D;
+  /// The default 2D texture coordinate type is OpenMesh::Vec2f.
+  typedef Vec2f  TexCoord2D;
+  /// The default 3D texture coordinate type is OpenMesh::Vec3f.
+  typedef Vec3f  TexCoord3D;
 
-    /// The default texture index type
-    typedef int TextureIndex;
+  /// The default texture index type
+  typedef int TextureIndex;
 
-    /// The default color type is OpenMesh::Vec3uc.
-    typedef Vec3uc Color;
+  /// The default color type is OpenMesh::Vec3uc.
+  typedef Vec3uc Color;
 
 #ifndef DOXY_IGNORE_THIS
-    VertexTraits    {};
-    HalfedgeTraits  {};
-    EdgeTraits      {};
-    FaceTraits      {};
+  VertexTraits    {};
+  HalfedgeTraits  {};
+  EdgeTraits      {};
+  FaceTraits      {};
 #endif
 
-    VertexAttributes(0);
-    HalfedgeAttributes(Attributes::PrevHalfedge);
-    EdgeAttributes(0);
-    FaceAttributes(0);
+  VertexAttributes(0);
+  HalfedgeAttributes(Attributes::PrevHalfedge);
+  EdgeAttributes(0);
+  FaceAttributes(0);
 };
 
 
@@ -174,46 +174,46 @@ struct DefaultTraits
 template <class _Traits1, class _Traits2> struct MergeTraits
 {
 #ifndef DOXY_IGNORE_THIS
-    struct Result
-    {
-        // Mipspro needs this (strange) typedef
-        typedef _Traits1  T1;
-        typedef _Traits2  T2;
+  struct Result
+  {
+    // Mipspro needs this (strange) typedef
+    typedef _Traits1  T1;
+    typedef _Traits2  T2;
 
 
-        VertexAttributes   ( T1::VertexAttributes   | T2::VertexAttributes   );
-        HalfedgeAttributes ( T1::HalfedgeAttributes | T2::HalfedgeAttributes );
-        EdgeAttributes     ( T1::EdgeAttributes     | T2::EdgeAttributes     );
-        FaceAttributes     ( T1::FaceAttributes     | T2::FaceAttributes     );
+    VertexAttributes   ( T1::VertexAttributes   | T2::VertexAttributes   );
+    HalfedgeAttributes ( T1::HalfedgeAttributes | T2::HalfedgeAttributes );
+    EdgeAttributes     ( T1::EdgeAttributes     | T2::EdgeAttributes     );
+    FaceAttributes     ( T1::FaceAttributes     | T2::FaceAttributes     );
 
 
-        typedef typename T1::Point    Point;
-        typedef typename T1::Normal   Normal;
-        typedef typename T1::Color    Color;
-        typedef typename T1::TexCoord TexCoord;
+    typedef typename T1::Point    Point;
+    typedef typename T1::Normal   Normal;
+    typedef typename T1::Color    Color;
+    typedef typename T1::TexCoord TexCoord;
 
-        template <class Base, class Refs> class VertexT :
-            public T1::template VertexT<
-                typename T2::template VertexT<Base, Refs>, Refs>
-        {};
+    template <class Base, class Refs> class VertexT :
+      public T1::template VertexT<
+      typename T2::template VertexT<Base, Refs>, Refs>
+    {};
 
-        template <class Base, class Refs> class HalfedgeT :
-            public T1::template HalfedgeT<
-                typename T2::template HalfedgeT<Base, Refs>, Refs>
-        {};
-
-
-        template <class Base, class Refs> class EdgeT :
-            public T1::template EdgeT<
-                typename T2::template EdgeT<Base, Refs>, Refs>
-        {};
+    template <class Base, class Refs> class HalfedgeT :
+      public T1::template HalfedgeT<
+      typename T2::template HalfedgeT<Base, Refs>, Refs>
+    {};
 
 
-        template <class Base, class Refs> class FaceT :
-            public T1::template FaceT<
-                typename T2::template FaceT<Base, Refs>, Refs>
-        {};
-    };
+    template <class Base, class Refs> class EdgeT :
+      public T1::template EdgeT<
+      typename T2::template EdgeT<Base, Refs>, Refs>
+    {};
+
+
+    template <class Base, class Refs> class FaceT :
+      public T1::template FaceT<
+      typename T2::template FaceT<Base, Refs>, Refs>
+    {};
+  };
 #endif
 };
 

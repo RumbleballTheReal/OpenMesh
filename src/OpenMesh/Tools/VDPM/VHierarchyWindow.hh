@@ -122,7 +122,7 @@ private:
 
 public:
   VHierarchyWindow();
-  explicit VHierarchyWindow(VHierarchy &_vhierarchy);
+  VHierarchyWindow(VHierarchy &_vhierarchy);
   ~VHierarchyWindow(void);
   
   void set_vertex_hierarchy(VHierarchy &_vhierarchy)

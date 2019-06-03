@@ -152,7 +152,7 @@ public:
   {}
 #else
   /// Construct with a given \c HeapIterface.
-  explicit HeapT(const HeapInterface &_interface)
+  HeapT(const HeapInterface &_interface)
   : HeapVector(),  interface_(_interface)
   {}
 #endif
@@ -258,9 +258,9 @@ public:
   bool check()
   {
     bool ok(true);
-    for (unsigned int i=0; i<size(); ++i)
+    unsigned int i, j;
+    for (i=0; i<size(); ++i)
     {
-      unsigned int j;
       if (((j=left(i))<size()) && interface_.greater(entry(i), entry(j))) 
       {
         omerr() << "Heap condition violated\n";
@@ -351,11 +351,12 @@ HeapT<HeapEntry, HeapInterface>::
 downheap(size_t _idx)
 {
   const HeapEntry     h = entry(_idx);
+  size_t        childIdx;
   const size_t        s = size();
   
   while(_idx < s)
   {
-    size_t childIdx = left(_idx);
+    childIdx = left(_idx);
     if (childIdx >= s) break;
     
     if ((childIdx + 1 < s) && (interface_.less(entry(childIdx + 1), entry(childIdx))))

@@ -486,7 +486,7 @@ void TriConnectivity::split_copy(EdgeHandle _eh, VertexHandle _vh)
   const VertexHandle v0 = to_vertex_handle(halfedge_handle(_eh, 0));
   const VertexHandle v1 = to_vertex_handle(halfedge_handle(_eh, 1));
 
-  const int nf = static_cast<int>(n_faces());
+  const int nf = n_faces();
 
   // Split the halfedge ( handle will be preserved)
   split(_eh, _vh);

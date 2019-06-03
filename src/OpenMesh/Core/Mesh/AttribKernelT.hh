@@ -229,13 +229,8 @@ public:
 
   //-------------------------------------------------------------------- points
 
-  // Returns a const pointer to the first element of the points array
   const Point* points() const
   { return this->property(points_).data(); }
-
-  // Returns a const reference to the points array
-  const std::vector<Point>& points_array() const
-  { return this->property(points_); }
 
   const Point& point(VertexHandle _vh) const
   { return this->property(points_, _vh); }

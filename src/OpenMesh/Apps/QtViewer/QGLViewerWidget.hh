@@ -74,7 +74,7 @@ public:
   typedef QGLWidget Super;
    
   // Default constructor.
-  explicit QGLViewerWidget( QWidget* _parent=0 );
+  QGLViewerWidget( QWidget* _parent=0 );
 
   // 
   QGLViewerWidget( QGLFormat& _fmt, QWidget* _parent=0 );

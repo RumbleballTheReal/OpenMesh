@@ -333,6 +333,7 @@ CatmullClarkT<MeshType,RealType>::update_vertex( MeshType& _m, const VertexHandl
   // and http://www.cs.utah.edu/~lacewell/subdeval
   if ( _m.is_boundary( _vh))
   {
+    Normal   Vec;
     pos = _m.point(_vh);
     VertexEdgeIter   ve_itr;
     for ( ve_itr = _m.ve_iter( _vh); ve_itr.is_valid(); ++ve_itr)

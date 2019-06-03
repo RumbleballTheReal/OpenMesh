@@ -94,12 +94,8 @@ public:
 
 public:   
   /// default constructor
-  explicit ProgViewerWidget(QWidget* _parent=0)
-    : MeshViewerWidget(_parent),
-      n_base_vertices_(0),
-      n_base_faces_(0),
-      n_detail_vertices_(0),
-      n_max_vertices_(0)
+  ProgViewerWidget(QWidget* _parent=0)
+    : MeshViewerWidget(_parent)
   {
     timer_ = new QTimer(this);
 
@@ -137,7 +133,7 @@ private:
   /// coarsen mesh down to _n vertices
   void coarsen(unsigned int _n);
 
-  virtual void keyPressEvent(QKeyEvent* _event) override;
+  virtual void keyPressEvent(QKeyEvent* _event);
 
   // mesh data
   bool              animateRefinement_;
